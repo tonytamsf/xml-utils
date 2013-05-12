@@ -1,0 +1,17 @@
+#!/home/y/bin/perl -w
+
+# takes any XML input and output in human readable format
+# yinst i ypan/perl-XML-Beautify
+
+use strict;
+
+use XML::Beautify;
+my $obj_ref = XML::Beautify->new();
+my $XMLstr = "";
+while (<>)
+{
+    $XMLstr .= $_; 
+}
+my $cleanXML = $obj_ref->beautify(\$XMLstr);
+print $cleanXML;
+

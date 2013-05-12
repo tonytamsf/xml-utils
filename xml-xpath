@@ -1,0 +1,19 @@
+#!/home/y/bin/perl -w
+
+use strict;
+
+use XML::XPath;
+my $input = "";
+while (<>)
+{
+    $input .= $_;
+}
+my $path = 
+my $xml = XML::XPath->new(xml  => $input);
+
+
+# http://xml.news.yahoo.com/us/news/rss/richstoryrss.html?u=/ap/bbn_bonds_amphetamines
+print $xml->findvalue("/rdf:RDF/channel/title");
+
+1;
+
