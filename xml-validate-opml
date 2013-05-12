@@ -1,0 +1,16 @@
+#!/home/y/bin/perl -w
+
+use XML::OPML;
+use LWP::Simple;
+my $S_url = shift;
+unless($S_url)
+{
+    die "Usage: validate_opml.pl url";
+}
+
+my $S_xml = LWP::Simple::get($S_url);
+
+my $O_opml = new XML::OPML(version => "1.1");
+$O_opml->parse($S_xml);
+print $O_opml->as_string();
+;
